@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_template_form_view_inherited_for_multi_images" model="ir.ui.view">
+        <field name="name">product.form.multi.images</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='route_from_categ_ids']" position="after">
+                <div>
+                    <group string="Images" name="images">
+                        <button name="open_multi_iamges" class="oe_stat_button" type="object">
+                            <div class="oe_title">
+                                <field name="ref_image" widget="image" display="thumbnail"
+                                       options='{"size": [50, 50]}'/>
+                            </div>
+                        </button>
+                    </group>
+                    <field name="product_count" invisible="1"/>
+                    <field name="multi_image_ids" widget="many2many_tags" attrs="{'readonly':[('product_count','!=',0)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_image_tree_view" model="ir.ui.view">
+        <field name="name">product.image.view.tree</field>
+        <field name="model">product.image</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="image_1920"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_config_settings_view_for_multi_product_images" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.multi.images</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='manage_product_packaging']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box"
+                     id="manage_product_count_setting"
+                     title="Manage Multi Images for Single Product">
+                    <div class="o_setting_left_pane">
+                        <label for="product_count"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <field name="product_count"/>
+                        <div class="text-muted">
+                            Manage Multi Images for Single Product
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
