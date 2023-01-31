@@ -1,5 +1,5 @@
 {
-    'name':"Mutli Images",
+    'name':"Multi Images",
     'description':"Multi Images for single Image",
     'depends':['stock','base','web','product','website_sale'],
     'data':[
