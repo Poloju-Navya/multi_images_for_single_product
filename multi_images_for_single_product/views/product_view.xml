@@ -16,7 +16,7 @@
                         </button>
                     </group>
                     <field name="product_count" invisible="1"/>
-                    <field name="multi_image_ids" widget="many2many_tags" attrs="{'readonly':[('product_count','!=',0)]}"/>
+                    <field name="multi_image_ids" widget="many2many_tags" attrs="{'readonly':[('product_count','!=',0)]}" invisible="1"/>
                 </div>
             </xpath>
         </field>
@@ -43,10 +43,10 @@
                      id="manage_product_count_setting"
                      title="Manage Multi Images for Single Product">
                     <div class="o_setting_left_pane">
-                        <label for="product_count"/>
+                        <label for="no_of_product"/>
                     </div>
                     <div class="o_setting_right_pane">
-                        <field name="product_count"/>
+                        <field name="no_of_product"/>
                         <div class="text-muted">
                             Manage Multi Images for Single Product
                         </div>
